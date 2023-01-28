@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>weather data</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta charset="UTF-8">
+            <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Pacifico'>
+
+            <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+            </script>
+
+
+    </head>
+    <body>
+       
+
+
+
+        <h1>Weather</h1>
+        
+
+        <div class="tab-frame">
+            <input type="radio" checked name="tab" id="tab1" onclick="getData()"/>
+            <label for="tab1">Latest 30 measurements</label>
+          
+            <input type="radio" name="tab" id="tab2" onclick="getData1()" />
+            <label for="tab2"> Latest 20 temperature measurements</label>
+          
+            <input type="radio" name="tab" id="tab3" onclick="getData2()" />
+            <label for="tab3">Latest 20 wind speed measurements</label>
+          
+            <input type="radio"  name="tab" id="tab4" />
+            <label for="tab4">Info View</label>
+
+            <input type="radio"  name="tab" id="tab5" onclick="weatherFetch2()"/>
+            <label for="tab5"> Time and Measurement (UI)</label>
+
+
+            <div class="tab">
+              <div id="data0"></div>
+            </div>
+
+
+            <div class="tab">
+              <div>
+                <label for="weather">Choose Temperature View:
+                <select name="weatherSelect" id="weatherSelect" onchange="weatherFetch()">
+                <option value="0" selected> Now </option>
+                <option value="24">24 hours</option>
+                <option value="48">48 hours</option>
+                <option value="72">72 hours</option>
+                <option value="7">Week</option>
+              </select>
+              </label>
+              <label> Search: 
+              <input type="text" id="view2Search" onkeyup="view2Search()" placeholder="Search by date(2022-xx-xx)" title="Type a date"/>
+            </label>
+             </div>
+                <div id="data1"></div>
+                <h2 >Temperature Bar</h2>
+                <canvas id="chart" style="width:100%;max-width:700px"></canvas>
+            </div>
+
+
+            <div class="tab">
+              <div>
+                <label for="weather1">Choose Wind Speed View:
+                <select name="weatherSelect1" id="weatherSelect1" onchange="weatherFetch1()">
+                <option value="0" selected> Now </option>
+                <option value="24">24 hours</option>
+                <option value="48">48 hours</option>
+                <option value="72">72 hours</option>
+                <option value="7">Week</option>
+              </select>
+            </label>
+            <label> Search: 
+              <input type="text" id="view3Search" onkeyup="view3Search()" placeholder="Search by date(2022-xx-xx)" title="Type a date"/>
+            </label>
+             </div>
+              
+              <div id="data2"></div>
+            <h2>Wind Speed Bar</h2>
+           
+            <canvas id="chart_wind" style="width:100%;max-width:700px"></canvas>
+           
+          </div>
+
+
+    
+            <div class="tab">
+              <h2>Author Information</h2>
+              <p>Name: Subria Islam</p>
+              <p>Email address: subria.islam@tuni.fi</p>
+              <p>Course: 5G00DM03-3005</p>
+              <p>
+                This page has 5 views.1st view shows latest 30 weather measurements, 2nd
+                view shows latest 20 temperature measurements, 3rd view shows latest 20
+                wind speed measurements, 4th view shows author information and 5th view shows time and measurement (UI).
+              </p>
+            </div>
+
+          <div class="tab">
+            <div>
+              <label for="weather2">Choose time:
+              <select name="weatherSelect2" id="weatherSelect2" onchange="weatherFetch2()">
+              <option value="0" selected> Now </option>
+              <option value="24">24 hours</option>
+              <option value="48">48 hours</option>
+              <option value="72">72 hours</option>
+              <option value="7">Week</option>
+            </select>
+          </label>
+           </div>
+            
+           <div>
+            <label for="weather3">Choose measurement type:
+            <select name="weatherSelect3" id="weatherSelect3" onchange="weatherFetch2()">
+            <option value="rain" selected> rain </option>
+            <option value="wind speed">wind speed</option>
+            <option value="wind direction">wind direction</option>
+            <option value="light">light</option>
+            <option value="temperature">temperature </option>
+          </select>
+        </label>
+           </div>
+    
+    
+    
+          <div id="data3"></div>
+          <h3>Line Chart</h3>
+         
+          <canvas id="chart_new" style="width:100%;max-width:700px"></canvas>
+          </div>
+         
+        </div>
+        
+
+         
+
+       
+        <script src="index.js"></script>
+        <link rel="stylesheet" type="text/css" href="index.css"/>
+    </body>
+</html>

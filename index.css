@@ -1,0 +1,209 @@
+
+h1{ 
+color: #BF40BF;
+font-family: 'pacifico','Helvetica','sans-serif';
+font-size: 2rem;
+margin-bottom: 2rem;
+text-align: center;
+
+  
+}
+
+div.tab-frame input[type=radio] {
+  display: none;
+}
+div.tab-frame label {
+  display: block;
+  float: left;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 2rem;
+  color:   #800080;
+
+  font-size: 1.4rem;
+}
+div.tab-frame input:checked + label {
+  background: linear-gradient(to right,#800080, #BF40BF);
+  color: white;
+  border-radius: 30px;
+  cursor: default;
+  transition: 0.2s ease-in-out;
+}
+div.tab-frame div.tab {
+  display: none;
+  padding: 5px 10px;
+  clear: left;
+}
+
+div.tab-frame input:nth-of-type(1):checked ~ .tab:nth-of-type(1),
+div.tab-frame input:nth-of-type(2):checked ~ .tab:nth-of-type(2),
+div.tab-frame input:nth-of-type(3):checked ~ .tab:nth-of-type(3),
+div.tab-frame input:nth-of-type(4):checked ~ .tab:nth-of-type(4),
+div.tab-frame input:nth-of-type(5):checked ~ .tab:nth-of-type(5) {
+  display: block;
+}
+
+body {
+  width: auto;
+  margin-left: 40px;
+  font-family: Arial;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  margin-top: 2%;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 0.35em;
+  color:#800080;
+}
+
+table th,
+table td {
+  padding: 0.625em;
+  text-align: center;
+}
+
+table th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color:  #BF40BF;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+   
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+h2{
+color: #BF40BF;
+font-family: 'pacifico','Helvetica','sans-serif';
+font-size: 2rem;
+margin-top: 4em;
+margin-bottom: 0;
+text-align: center !important;
+}
+
+
+
+div.tab label{
+  color:#800080;
+}
+
+p{
+  color:#BF40BF;
+  font-size: 1.2rem;
+}
+
+
+select::-ms-expand {
+display: none;
+}
+
+div.tab label select:after {
+  content: '<>';
+  font: 17px "Consolas", monospace;
+  color: #333;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: 11px;
+  
+  top: 17px;
+  padding: 0 0 2px;
+  border-bottom: 1px solid #800080;
+  position: absolute;
+  pointer-events: none;
+}
+
+div.tab label select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  display: block;
+  max-width: 320px;
+  height: 25px;
+  float: right;
+  margin: 5px 0px;
+  padding: 0px 24px;
+  font-size: 16px;
+  color: #333;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  -ms-word-break: normal;
+  word-break: normal;
+  color:#BF40BF;
+  margin-left: 1.5em;
+}
+
+#view2Search {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  font-size: 15px;
+  padding: 5px 30px 5px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  color: #800080;
+}
+
+#view3Search {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  font-size: 15px;
+  padding: 5px 30px 5px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  color: #800080;
+}
