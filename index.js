@@ -57,20 +57,20 @@ var chartNew = new Chart("chart_new", {
 
 // view 1(Latest 30 measurements)
 function dataToHtmlRepresentationWeather(dataObjects){
-    let html = "<table> <tr><th>row number</th><th>measurement date</th><th>measurement time</th><th>measurement type</th><th>measured value</th></tr>";
-    
-    
+    let html = "<table > <tr><th>row number</th><th>measurement date</th><th>measurement time</th><th>measurement type</th><th>measured value</th></tr>";
+
+
     for (let j=0; j<30; j++){
         const dataObject = dataObjects[j];
         html += `
-        <tr>    
-        <td>${dataObject.id}</td>         
+        <tr>
+        <td>${dataObject.id}</td>
         <td>${dataObject.measureTime.split("T")[0]}</td>
         <td>${dataObject.measureTime.split("T")[1]}</td>
         <td>${dataObject.measureType}</td>
         <td>${dataObject.measureValue}</td>
         </tr>
-        
+
 `
 }
 html +="</tr></table>";
@@ -90,7 +90,7 @@ function wrapData(jsonData){
         }
         const Data = {id : i+1 , measureTime: _measureTime , measureType: _keyName,measureValue: _keyValue };
         latestData.push(Data);
-        
+
     }
     console.log(latestData);
     document.getElementById('data0').innerHTML = dataToHtmlRepresentationWeather(latestData);
@@ -115,16 +115,16 @@ function dataToHtmlRepresentationTemp(dataobjects){
         const dataobject = dataobjects[k];
         hTml += `
                     <tr>
-                        <td>${k+1}</td>  
+                        <td>${k+1}</td>
                         <td>${dataobject.date_time.split("T")[0]}</td>
                         <td>${dataobject.date_time.split("T")[1]}</td>
                         <td>${dataobject.temperature}</td>
                     </tr>
-                        
+
                 `
             }
 
-    
+
         hTml +="</tr></table>";
         return hTml;
     }
@@ -157,7 +157,7 @@ function wrapDataChart01(jsonData){
     dataListTime = [];
     for (let i = 0; i < jsonData.length; i++) {
         dataListTemp.push(jsonData[i].temperature);
-        dataListTime.push(jsonData[i].date_time.split("T")[1]);    
+        dataListTime.push(jsonData[i].date_time.split("T")[1]);
     }
     console.log(jsonData);
     console.log(dataListTemp);
@@ -192,7 +192,7 @@ function dataToHtmlRepresentationWind(datAobjects){
             <td>${dAtaobject.date_time.split("T")[1]}</td>
             <td>${dAtaobject.wind_speed}</td>
         </tr>
-            
+
     `
 }
 hTMl +="</tr></table>";
@@ -227,7 +227,7 @@ return hTMl;
         dataListTime1 = [];
         for (let i = 0; i < jsonData1.length; i++) {
             dataListWind.push(jsonData1[i].wind_speed);
-            dataListTime1.push(jsonData1[i].date_time.split("T")[1]);    
+            dataListTime1.push(jsonData1[i].date_time.split("T")[1]);
         }
         console.log(jsonData1);
         console.log(dataListWind);
@@ -355,7 +355,7 @@ function drawNewChart2(){
              data: {
                labels: dataListTimeMeasureFilteredX,
                  datasets: [{
-                    borderColor: "purple",  
+                    borderColor: "purple",
                  backgroundColor: 'transparent',
                  data:  dataListTimeMeasureFilteredY
                }]
@@ -376,7 +376,7 @@ function wrapDataChartdiff(jsonData1,_measureName){
     dataListTimeMeasureFilteredX = [];
     for (let i = 0; i < jsonData1.length; i++) {
         dataListTimeMeasureFilteredY.push(jsonData1[i].data[_measureName]);
-        dataListTimeMeasureFilteredX.push(jsonData1[i].date_time.split("T")[1]);    
+        dataListTimeMeasureFilteredX.push(jsonData1[i].date_time.split("T")[1]);
     }
     console.log(jsonData1);
     console.log(dataListTimeMeasureFilteredY);
@@ -419,7 +419,7 @@ function parseArray(jsonData,measureName){
     if(dataListTimeMeasureFiltered.length > len){
         dataListTimeMeasureFiltered = dataListTimeMeasureFiltered.slice(0,len);
     }
-    
+
     console.log(dataListTimeMeasureFiltered);
     document.getElementById('data3').innerHTML = dataToHtmlRepresentationTimeMeasure(dataListTimeMeasureFiltered,measureName);
     wrapDataChartdiff(dataListTimeMeasureFiltered,measureName);
@@ -437,7 +437,7 @@ function getDataSelectTimeMeasureNow(_urlnew,_measureName){
 
 
 // different avarage time
-//line chart for rain 
+//line chart for rain
 function drawNewChartrain(){
     chartNew.destroy();
     chartNew = new Chart("chart_new", {
@@ -445,7 +445,7 @@ function drawNewChartrain(){
              data: {
                labels: datarainTime1,
                  datasets: [{
-                borderColor: "purple",  
+                borderColor: "purple",
                 backgroundColor: 'transparent',
                  data:  datarain
                }]
@@ -472,20 +472,20 @@ function dataToHtmlRepresentationdiff(datAobjects){
             <td>${dAtaobject.date_time.split("T")[1]}</td>
             <td>${dAtaobject.rain}</td>
         </tr>
-            
+
     `
 }
 hTMl +="</tr></table>";
 return hTMl;
 
 }
-// data for rain different avarage time line chart 
+// data for rain different avarage time line chart
 function wrapDataChartrain(jsonDatarain){
     datarain=[];
     datarainTime1 = [];
     for (let i = 0; i < jsonDatarain.length; i++) {
         datarain.push(jsonDatarain[i].rain);
-        datarainTime1.push(jsonDatarain[i].date_time.split("T")[1]);    
+        datarainTime1.push(jsonDatarain[i].date_time.split("T")[1]);
     }
     console.log(jsonDatarain);
     console.log(datarain);
@@ -503,7 +503,7 @@ function getDataSelectdiff(_url){
 
 
 
-//line chart for windspeed 
+//line chart for windspeed
 function drawNewChartwindspeed(){
     chartNew.destroy();
     chartNew = new Chart("chart_new", {
@@ -511,7 +511,7 @@ function drawNewChartwindspeed(){
              data: {
                labels: datawindspeedTime1,
                  datasets: [{
-                borderColor: "purple",  
+                borderColor: "purple",
                 backgroundColor: 'transparent',
                  data:  datawindspeed
                }]
@@ -539,7 +539,7 @@ function dataToHtmlRepresentationdiffwindSpeed(datAobjects){
             <td>${dAtaobject.date_time.split("T")[1]}</td>
             <td>${dAtaobject.wind_speed}</td>
         </tr>
-            
+
     `
 }
 hTMl +="</tr></table>";
@@ -547,13 +547,13 @@ return hTMl;
 
 }
 
-// data for windspeed different avarage time line chart 
+// data for windspeed different avarage time line chart
 function wrapDataChartwindspeed(jsonDatawindspeed){
     datawindspeed=[];
     datawindspeedTime1 = [];
     for (let i = 0; i < jsonDatawindspeed.length; i++) {
         datawindspeed.push(jsonDatawindspeed[i].wind_speed);
-        datawindspeedTime1.push(jsonDatawindspeed[i].date_time.split("T")[1]);    
+        datawindspeedTime1.push(jsonDatawindspeed[i].date_time.split("T")[1]);
     }
     console.log(jsonDatawindspeed);
     console.log(datawindspeed);
@@ -572,7 +572,7 @@ function getDataSelectdiffwindSpeed(_url){
 
 
 
-//line chart for winddirection 
+//line chart for winddirection
 function drawNewChartwinddirection(){
     chartNew.destroy();
     chartNew = new Chart("chart_new", {
@@ -580,7 +580,7 @@ function drawNewChartwinddirection(){
              data: {
                labels: datawinddirectionTime1,
                  datasets: [{
-                borderColor: "purple",  
+                borderColor: "purple",
                 backgroundColor: 'transparent',
                  data:  datawinddirection
                }]
@@ -607,20 +607,20 @@ function dataToHtmlRepresentationdiffwinddirection(datAobjects){
             <td>${dAtaobject.date_time.split("T")[1]}</td>
             <td>${dAtaobject.wind_direction}</td>
         </tr>
-            
+
     `
 }
 hTMl +="</tr></table>";
 return hTMl;
 
 }
-//data for winddirection different avarage time line chart 
+//data for winddirection different avarage time line chart
 function wrapDataChartwinddirection(jsonDatawinddirection){
     datawinddirection=[];
     datawinddirectionTime1 = [];
     for (let i = 0; i < jsonDatawinddirection.length; i++) {
         datawinddirection.push(jsonDatawinddirection[i].wind_direction);
-        datawinddirectionTime1.push(jsonDatawinddirection[i].date_time.split("T")[1]);    
+        datawinddirectionTime1.push(jsonDatawinddirection[i].date_time.split("T")[1]);
     }
     console.log(jsonDatawinddirection);
     console.log(datawinddirection);
@@ -638,7 +638,7 @@ function getDataSelectdiffwinddirection(_url){
 
 
 
-//line chart for light 
+//line chart for light
 function drawNewChartlight(){
     chartNew.destroy();
     chartNew = new Chart("chart_new", {
@@ -646,7 +646,7 @@ function drawNewChartlight(){
              data: {
                labels: datalightTime1,
                  datasets: [{
-                borderColor: "purple",  
+                borderColor: "purple",
                 backgroundColor: 'transparent',
                  data:  datalight
                }]
@@ -673,20 +673,20 @@ function dataToHtmlRepresentationdifflight(datAobjects){
             <td>${dAtaobject.date_time.split("T")[1]}</td>
             <td>${dAtaobject.light}</td>
         </tr>
-            
+
     `
 }
 hTMl +="</tr></table>";
 return hTMl;
 
 }
-//data for ligth different avarage time line chart 
+//data for ligth different avarage time line chart
 function wrapDataChartlight(jsonDatalight){
     datalight=[];
     datalightTime1 = [];
     for (let i = 0; i < jsonDatalight.length; i++) {
         datalight.push(jsonDatalight[i].light);
-        datalightTime1.push(jsonDatalight[i].date_time.split("T")[1]);    
+        datalightTime1.push(jsonDatalight[i].date_time.split("T")[1]);
     }
     console.log(jsonDatalight);
     console.log(datalight);
@@ -705,7 +705,7 @@ function getDataSelectdifflight(_url){
 
 
 
-//line chart for temperature 
+//line chart for temperature
 function drawNewCharttemperature(){
     chartNew.destroy();
     chartNew = new Chart("chart_new", {
@@ -713,7 +713,7 @@ function drawNewCharttemperature(){
              data: {
                labels: datatemperatureTime1,
                  datasets: [{
-                borderColor: "purple",  
+                borderColor: "purple",
                 backgroundColor: 'transparent',
                  data:  datatemperature
                }]
@@ -727,6 +727,8 @@ function drawNewCharttemperature(){
              }
            });
     };
+
+
 //for tempareture different time table
 function dataToHtmlRepresentationdifftem(datAobjects){
     let hTMl = "<table> <tr><th>row number</th><th>measurement date</th><th>measurement time</th><th>measured value</th></tr>";
@@ -740,20 +742,20 @@ function dataToHtmlRepresentationdifftem(datAobjects){
             <td>${dAtaobject.date_time.split("T")[1]}</td>
             <td>${dAtaobject.temperature}</td>
         </tr>
-            
+
     `
 }
 hTMl +="</tr></table>";
 return hTMl;
 
 }
-//data for temperature different avarage time line chart 
+//data for temperature different avarage time line chart
 function wrapDataCharttemperature(jsonDatatemperature){
     datatemperature=[];
     datatemperatureTime1 = [];
     for (let i = 0; i < jsonDatatemperature.length; i++) {
         datatemperature.push(jsonDatatemperature[i].temperature);
-        datatemperatureTime1.push(jsonDatatemperature[i].date_time.split("T")[1]);    
+        datatemperatureTime1.push(jsonDatatemperature[i].date_time.split("T")[1]);
     }
     console.log(jsonDatatemperature);
     console.log(datatemperature);
@@ -769,6 +771,31 @@ function getDataSelectdifftem(_url){
         wrapDataCharttemperature(data);
 }).catch(error => console.error('AAAARRRGGHH! '+error));
 }
+
+
+////////
+
+function clickHandler() {
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=tampere&units=metric&appid=3588187a0e1748af7403db42bc9a4485')
+    .then(response => response.json())
+    .then(data => {
+        const weatherIconUrl = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+
+        document.getElementById("weatherIcon").src = weatherIconUrl;
+        document.getElementById("city").innerHTML = `${data.name}`;
+        document.getElementById("feel").innerHTML = `Feels like ${data.main.feels_like}°C`;
+        document.getElementById("currentWeather").innerHTML = `${data.main.temp}°C`;
+        document.getElementById("humidity").innerHTML = `Humidity: ${data.main.humidity}%`;
+        document.getElementById("description").innerHTML = `| ${data.weather[0].description}`;
+        document.getElementById("wind").innerHTML = `Wind Speed: ${data.wind.speed}m/s`;
+    })
+    .catch(error => console.error('AAAARRRGGHH! ' + error));
+}
+
+// Fetch every 5 seconds
+setInterval(() => {
+    clickHandler(); // Replace with your API URL
+}, 5000);
 
 
 
@@ -825,7 +852,7 @@ if(weather2 == "24"){
     if(weather3 == "rain")
     {
         console.log("24 hours latest hourly averages rain.");
-        
+
         url2="http://webapi19sa-1.course.tamk.cloud/v1/weather/rain/23";
         getDataSelectdiff(url2);
     }
@@ -979,7 +1006,7 @@ function view2Search() {
         } else {
           tr[i].style.display = "none";
         }
-      }       
+      }
     }
   }
 
@@ -999,8 +1026,50 @@ function view3Search() {
         } else {
           tr[i].style.display = "none";
         }
-      }       
+      }
     }
-    
+
   }
-  
+
+// Splash screen
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(() => {
+        document.getElementById("splash-screen").classList.add("hide");
+    }, 3000); // Hide after 3 seconds
+});
+
+
+
+
+
+function toggleMenu() {
+    let sidebar = document.getElementById("sidebar");
+    let overlay = document.getElementById("overlay");
+
+    if (sidebar.classList.contains("show-sidebar")) {
+        sidebar.classList.remove("show-sidebar");
+        overlay.classList.remove("show-overlay");
+    } else {
+        sidebar.classList.add("show-sidebar");
+        overlay.classList.add("show-overlay");
+    }
+}
+
+function showView(viewId) {
+    // Hide all views
+    document.querySelectorAll(".section").forEach(el => el.style.display = "none");
+    document.getElementById("home").style.display = "none"; // Hide home screen
+
+    // Show selected view
+    document.getElementById(viewId).style.display = "block";
+
+    if (viewId === 'home') {
+        document.getElementById('backBtn').style.display = 'none';
+      } else {
+        document.getElementById('backBtn').style.display = 'block'; // Show the back button
+      }
+}
+
+window.onload = function() {
+    document.getElementById('backBtn').style.display = 'none';
+  }

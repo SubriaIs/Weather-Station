@@ -1,12 +1,12 @@
 
-h1{ 
-color: #BF40BF;
+h1{
+color: #b31bb3;
 font-family: 'pacifico','Helvetica','sans-serif';
 font-size: 2rem;
 margin-bottom: 2rem;
 text-align: center;
 
-  
+
 }
 
 div.tab-frame input[type=radio] {
@@ -47,22 +47,27 @@ body {
   width: auto;
   margin-left: 40px;
   font-family: Arial;
+  background: linear-gradient(to right, #f0d8c3, #ecc2aa, #ecc2aa,  #c9d2eb  );
 }
 
 table {
   border: 1px solid #ccc;
   border-collapse: collapse;
-  margin: 0;
   margin-top: 2%;
   padding: 0;
   width: 100%;
   table-layout: fixed;
-  
+  background-color: transparent;
+  margin: 0 auto; /* Centers the table horizontally */
+  max-width: 100%;
+  box-sizing: border-box;
+
 }
 
 table tr {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
+  background-color: transparent;
+
+  border: 1px solid #800080;
   padding: 0.35em;
   color:#800080;
 }
@@ -80,7 +85,7 @@ table th {
   color:  #BF40BF;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   table {
     border: 0;
   }
@@ -110,7 +115,7 @@ table th {
   }
 
   table td::before {
-   
+
     content: attr(data-label);
     float: left;
     font-weight: bold;
@@ -120,10 +125,10 @@ table th {
   table td:last-child {
     border-bottom: 0;
   }
-}
+} */
 
 h2{
-color: #BF40BF;
+color: #b31bb3;
 font-family: 'pacifico','Helvetica','sans-serif';
 font-size: 2rem;
 margin-top: 4em;
@@ -147,7 +152,7 @@ select::-ms-expand {
 display: none;
 }
 
-div.tab label select:after {
+/* div.tab label select:after {
   content: '<>';
   font: 17px "Consolas", monospace;
   color: #333;
@@ -156,7 +161,7 @@ div.tab label select:after {
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
   right: 11px;
-  
+
   top: 17px;
   padding: 0 0 2px;
   border-bottom: 1px solid #800080;
@@ -168,7 +173,7 @@ div.tab label select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  
+
   display: block;
   max-width: 320px;
   height: 25px;
@@ -184,15 +189,17 @@ div.tab label select {
   word-break: normal;
   color:#BF40BF;
   margin-left: 1.5em;
-}
+} */
+
+
 
 #view2Search {
   background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
   font-size: 15px;
-  padding: 5px 30px 5px 40px;
-  border: 1px solid #ddd;
+  padding: 3x 30px 3x 40px;
+  border: 1px solid #060606;
   margin-bottom: 10px;
   color: #800080;
 }
@@ -202,8 +209,545 @@ div.tab label select {
   background-position: 10px 10px;
   background-repeat: no-repeat;
   font-size: 15px;
-  padding: 5px 30px 5px 40px;
-  border: 1px solid #ddd;
+  padding: 3px 30px 3x 40px;
+  border: 1px solid #060606;
   margin-bottom: 10px;
   color: #800080;
+}
+
+/* Splash Screen Styles */
+#splash-screen {
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to right, #8ea1da, #b6b6e2, #d3a9b8, #ecc2aa, #f0d8c3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    z-index: 9999; /* Ensures it stays on top */
+}
+
+/* Hide the splash screen */
+.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease-out;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
+.icon-container {
+  position: relative;
+  display: inline-block;
+  width: 5rem;
+    height: 5rem;
+}
+
+/* Yellow Sun */
+.yellow-sun {
+  color: yellow;
+  font-size: 5rem;
+  position: absolute;
+  left:  -45px;
+  top:  -10px;
+  z-index: 1; /* Behind the cloud */
+  text-shadow: 3px 3px 10px rgba(255, 215, 0, 0.8); /* Glow effect */
+  animation: spin 5s linear infinite; /* Rotating effect */
+}
+
+/* Gray Cloud */
+.cloud {
+  color: gray;
+  font-size: 5rem;
+  position: absolute;
+  left: -15px;
+  top: 25px;
+  z-index: 2;
+}
+
+/* Sun Rotation Animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+
+ /* Hamburger Menu Styling */
+ .menu-btn {
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  padding: 10px;
+}
+
+.sidebar {
+  width: 240px;
+  height: 100%;
+  background: #800080;
+  position: fixed;
+  top: 0;
+  left: -240px;
+  transition: 0.3s;
+  padding-top: 60px;
+  color: white;
+  z-index: 2;
+}
+
+.sidebar a {
+  padding: 15px;
+  display: block;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid #444;
+}
+
+.sidebar a:hover {
+  background: #555;
+}
+
+.show-sidebar {
+  left: 0;
+}
+
+.weather-container {
+  text-align: center;
+  margin: 50px auto;
+  width: 80%;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  background: white;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Overlay Effect */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.overlay.show-overlay {
+  display: block;
+}
+
+
+/* Back Button */
+.back-btn {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  padding: 10px 20px;
+  background: transparent;
+  display: flex;
+  border: none;
+  align-items: center;
+}
+
+
+
+ /* Main Sections */
+ .section {
+  display: none;  /* Hide all sections initially */
+  text-align: center;
+  padding: 20px;
+  background: transparent;
+  margin: 20px auto;
+  width: 90%;
+  border: none;
+  margin: 0 auto;
+  position: relative;
+  top: -80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Show Home Screen by Default */
+#home {
+  display: block; /* Home screen visible at first */
+  text-align: center;
+  position: relative;
+  top: -80px;  /* Push the home section higher */
+  padding: 20px;
+  width: 80%; /* Set the width of the section */
+  background: transparent;
+  border: none;
+  margin: 0 auto; /* This centers the element horizontally */
+}
+
+
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+  border-color: black;
+}
+
+.arrow:hover {
+  border-color: #007bff;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+
+#weatherSelect1 option:hover {
+  background-color: #ccc;  /* Light gray background on hover */
+  color: white;            /* White text color */
+}
+
+
+/* Media Query for smaller screens (max-width 768px) */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    left: -200px;  /* Keep it hidden by default on smaller screens */
+  }
+
+  .show-sidebar {
+    left: 0;  /* Show sidebar on toggle */
+  }
+
+  /* Hamburger button: position it on the top-left corner on mobile */
+  .menu-btn {
+    font-size: 28px;
+    top: 15px;
+    left: 15px;
+  }
+}
+
+/* For Mobile View (max-width 480px) */
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 180px;
+    left: -180px;  /* Hide it on mobile by default */
+  }
+
+  .show-sidebar {
+    left: 0;  /* Show sidebar on toggle */
+  }
+
+  .menu-btn {
+    font-size: 24px;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+
+/* For smaller screens, adjust icon sizes and layout */
+@media screen and (max-width: 768px) {
+  #splash-screen {
+    font-size: 18px; /* Smaller text size for tablets */
+    flex-direction: column;
+  }
+
+  .yellow-sun {
+    font-size: 4rem; /* Adjust sun size */
+    left: -35px; /* Adjust sun position */
+    top: -5px;
+  }
+
+  .cloud {
+    font-size: 4rem; /* Adjust cloud size */
+    left: -10px; /* Adjust cloud position */
+    top: 20px;
+  }
+
+  .icon-container {
+    width: 4rem;
+    height: 4rem;/* Adjust icon container size */
+    margin-bottom: 15px;
+  }
+}
+
+/* For very small screens, like mobile phones */
+@media screen and (max-width: 480px) {
+  #splash-screen {
+    font-size: 16px; /* Even smaller text size for small phones */
+    flex-direction: column;
+  }
+
+  .yellow-sun {
+    font-size: 3.5rem; /* Further adjust sun size */
+    left: -25px; /* Adjust sun position */
+    top: -5px;
+  }
+
+  .cloud {
+    font-size: 3.5rem; /* Further adjust cloud size */
+    left: -5px; /* Adjust cloud position */
+    top: 20px;
+  }
+
+  .icon-container {
+    width: 3rem;
+    height: 3rem; /* Adjust icon container size */
+    margin-bottom: 15px;
+  }
+}
+
+
+
+
+/* Make the table responsive by reducing text size */
+@media screen and (max-width: 768px) {
+  table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    font-size: 0.75em; /* Slightly reduce font size for better fitting on smaller screens */
+    table-layout: auto; /* Allow table to adjust layout based on content */
+  }
+
+  table th, table td {
+    padding: 0.75em; /* Adjust padding for better readability on small screens */
+  }
+
+  table th {
+    font-size: 0.85em; /* Keep header font size large enough for readability */
+  }
+
+  table td {
+    font-size: 0.75em; /* Smaller font size for table content */
+  }
+
+  h2 {
+    font-size: 1.2em; /* Reduce size of h2 slightly */
+  }
+
+  #home {
+    margin-top: 40px;  /* Add space to the top to push the content down */
+  }
+
+  .section {
+    margin-top: 60px; /* Add space to the top to push the content down */
+    width: 95%;       /* Increase width for smaller screens to use more space */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    box-sizing: border-box; /* Prevent overflow due to padding */
+  }
+}
+
+/* For very small screens (below 480px) */
+@media screen and (max-width: 480px) {
+  table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    font-size: 0.55em; /* Further reduce font size for very small screens */
+  }
+
+  table th, table td {
+    padding: 0.5em; /* Smaller padding for tighter spaces */
+  }
+
+  table th {
+    font-size: 0.75em; /* Adjust header font size for smaller devices */
+  }
+
+  table td {
+    font-size: 0.6em; /* Smaller font size for very small devices */
+  }
+
+  h2 {
+    font-size: 1em; /* Keep heading size smaller on very small screens */
+  }
+
+  #home {
+    margin-top: 40px;  /* Add space to the top to push the content down */
+  }
+
+  .section {
+    margin-top: 60px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}
+
+
+/* For medium to large screens, maintain the current layout */
+@media screen and (min-width: 768px) {
+  .section div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .section label {
+    margin-right: 20px; /* Add margin to separate label and input */
+  }
+
+  .section input, .section select {
+    margin-top: 0;
+  }
+}
+
+/* For smaller screens (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .section div {
+    display: block; /* Make the elements stack on top of each other */
+    width: 100%;
+  }
+
+  .section label {
+    display: block; /* Ensure the label takes the full width */
+    margin-bottom: 10px; /* Space between label and input */
+    text-align: center; /* Center the label */
+  }
+
+  .section input,
+  .section select {
+    width: 100%; /* Make input and select take full width */
+    margin-bottom: 10px; /* Space between inputs */
+    font-size: 14px; /* Adjust font size for smaller screens */
+    padding: 1.5px 3px 1.5px 3px;
+  }
+
+  /* Optional: Center text inside the select box */
+  #weatherSelect1 {
+    text-align: center;
+  }
+
+  #weatherSelect2 {
+    text-align: center;
+  }
+
+  #weatherSelect3 {
+    text-align: center;
+  }
+
+  body {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  canvas {
+    max-width: 100%;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section label {
+    font-size: 10px; /* Adjust font size for very small screens */
+  }
+
+  .section input,
+  .section select {
+    font-size: 13px; /* Adjust font size further for very small screens */
+    padding: 1.5px 3px 1.5px 3px;
+  }
+
+  /* Optional: Center text inside the select box */
+  #weatherSelect {
+    text-align: center;
+  }
+
+  #weatherSelect2 {
+    text-align: center;
+  }
+
+  #weatherSelect3 {
+    text-align: center;
+  }
+
+  body {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  canvas {
+    max-width: 100%;
+    align-items: center;
+  }
+}
+
+
+#city {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#currentWeather {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+
+#feel, #description, #wind, #humidity {
+  margin-bottom: 10px;
+}
+
+ /* Media query for smaller screens */
+ @media screen and (max-width: 768px) {
+  #city {
+      font-size: 28px; /* Reduce font size for smaller screens */
+  }
+
+  #currentWeather {
+      font-size: 24px; /* Reduce font size for smaller screens */
+  }
+
+
+  #feel, #description, #wind, #humidity {
+      font-size: 14px; /* Reduce font size for smaller screens */
+  }
+}
+
+/* Further adjustments for very small screens (e.g., mobile phones) */
+@media screen and (max-width: 480px) {
+  #city {
+      font-size: 22px; /* Even smaller font size for extra small screens */
+  }
+
+  #currentWeather {
+      font-size: 20px; /* Smaller font size for extra small screens */
+  }
+
+  #feel, #description, #wind, #humidity {
+      font-size: 12px; /* Even smaller font size */
+  }
 }
